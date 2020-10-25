@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/InstituteOfMicro/InstituteOfMicro.iml" filepath="$PROJECT_DIR$/InstituteOfMicro/InstituteOfMicro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstituteOfMicro/common/common.iml" filepath="$PROJECT_DIR$/InstituteOfMicro/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstituteOfMicro/common/common-utils/common-utils.iml" filepath="$PROJECT_DIR$/InstituteOfMicro/common/common-utils/common-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/endPro.iml" filepath="$PROJECT_DIR$/.idea/endPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstituteOfMicro/service/service.iml" filepath="$PROJECT_DIR$/InstituteOfMicro/service/service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstituteOfMicro/common/service-base/service-base.iml" filepath="$PROJECT_DIR$/InstituteOfMicro/common/service-base/service-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstituteOfMicro/service/service-edu/service-edu.iml" filepath="$PROJECT_DIR$/InstituteOfMicro/service/service-edu/service-edu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InstituteOfMicro/service/service-oss/service-oss.iml" filepath="$PROJECT_DIR$/InstituteOfMicro/service/service-oss/service-oss.iml" />
+    </modules>
+  </component>
+</project>

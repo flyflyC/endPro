@@ -5,7 +5,7 @@ import com.aliyun.oss.model.CannedAccessControlList;
 import com.vedu.commonutils.ResultCode;
 import com.vedu.oss.service.FileService;
 import com.vedu.oss.utils.ConstantPropertiesUtil;
-import com.vedu.servicebase.exceptionhandler.GuliException;
+import com.vedu.servicebase.exceptionhandler.EduException;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -68,7 +68,7 @@ public class FileServiceImpl implements FileService {
             uploadUrl = "http://" + bucketName + "." + endPoint + "/" + fileUrl;
 
         } catch (IOException e) {
-            throw new GuliException(ResultCode.ERROR);
+            throw new EduException(ResultCode.ERROR);
         }
 
         return uploadUrl;

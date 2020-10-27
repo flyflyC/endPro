@@ -5,6 +5,9 @@ import com.vedu.eduservice.entity.EduTeacher;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.vedu.eduservice.entity.vo.TeacherQuery;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * <p>
  * 讲师 服务类
@@ -16,4 +19,9 @@ import com.vedu.eduservice.entity.vo.TeacherQuery;
 public interface EduTeacherService extends IService<EduTeacher> {
 
     public void pageQuery(Page<EduTeacher> pageParam, TeacherQuery teacherQuery);
+    List<EduTeacher> selectHotTeacher();
+
+    Map<String, Object> getTeacherFrontList(Page<EduTeacher> pageTeacher);
+
+
 }

@@ -13,7 +13,7 @@ import com.vedu.eduservice.service.EduCourseDescriptionService;
 import com.vedu.eduservice.service.EduCourseService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.vedu.eduservice.service.EduVideoService;
-import com.vedu.servicebase.exceptionhandler.GuliException;
+import com.vedu.servicebase.exceptionhandler.EduException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +33,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Autowired
     private EduCourseDescriptionService descriptionService;
 
-    @Autowired
+    @Autowired(required = false)
     private EduCourseMapper eduCourseMapper;
 
     @Autowired
@@ -51,7 +51,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         course.setIsDeleted(0);
         boolean resultCourseInfo = this.save(course);
         if (!resultCourseInfo) {
-            throw new GuliException(20001, "课程信息保存失败");
+            throw new EduException(20001, "课程信息保存失败");
         }
 
         //保存课程详情信息
@@ -60,7 +60,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         courseDescription.setId(course.getId()); // 一对一关系，两表的id一致
         boolean resultDescription = descriptionService.save(courseDescription);
         if (!resultDescription) {
-            throw new GuliException(20001, "课程详情信息保存失败");
+            throw new EduException(20001, "课程详情信息保存失败");
         }
 
         return course.getId();
@@ -70,7 +70,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     public CourseInfoForm getCourseInfoFormById(String id) {
         EduCourse eduCourse = baseMapper.selectById(id);
         if(eduCourse == null){
-            throw new GuliException(20001,"数据不存在");
+            throw new EduException(20001,"数据不存在");
         }
 
         CourseInfoForm courseInfoForm = new CourseInfoForm();
@@ -90,7 +90,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         BeanUtils.copyProperties(courseInfoForm, course);
         boolean resultCourseInfo = this.updateById(course);
         if(!resultCourseInfo){
-            throw new GuliException(20001, "课程信息保存失败");
+            throw new EduException(20001, "课程信息保存失败");
         }
 
         //保存课程详情信息
@@ -99,7 +99,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         courseDescription.setId(course.getId());
         boolean resultDescription = descriptionService.updateById(courseDescription);
         if(!resultDescription){
-            throw new GuliException(20001, "课程详情信息保存失败");
+            throw new EduException(20001, "课程详情信息保存失败");
         }
     }
 
@@ -116,7 +116,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         eduCourse.setStatus(EduCourse.COURSE_NORMAL);
         boolean flag = this.updateById(eduCourse);
         if(!flag){
-            throw new GuliException(20001,"课程发布失败!");
+            throw new EduException(20001,"课程发布失败!");
         }
     }
 

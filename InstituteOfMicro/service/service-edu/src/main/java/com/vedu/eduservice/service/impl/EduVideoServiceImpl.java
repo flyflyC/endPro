@@ -6,7 +6,7 @@ import com.vedu.eduservice.entity.vo.VideoInfoForm;
 import com.vedu.eduservice.mapper.EduVideoMapper;
 import com.vedu.eduservice.service.EduVideoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.vedu.servicebase.exceptionhandler.GuliException;
+import com.vedu.servicebase.exceptionhandler.EduException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +35,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> i
         BeanUtils.copyProperties(videoInfoForm,eduVideo);
         boolean save = this.save(eduVideo);
         if(!save){
-            throw new GuliException(20001,"保存失败!");
+            throw new EduException(20001,"保存失败!");
         }
     }
 
@@ -43,7 +43,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> i
     public VideoInfoForm getInfoById(String id) {
         EduVideo eduVideo = this.getById(id);
         if(eduVideo == null){
-            throw new GuliException(20001,"该小节不存在！");
+            throw new EduException(20001,"该小节不存在！");
         }
         VideoInfoForm videoInfoForm = new VideoInfoForm();
         BeanUtils.copyProperties(eduVideo,videoInfoForm);
@@ -56,7 +56,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> i
         BeanUtils.copyProperties(videoInfoForm,eduVideo);
         boolean flag = this.updateById(eduVideo);
         if(!flag){
-            throw new GuliException(2001,"保存失败!");
+            throw new EduException(2001,"保存失败!");
         }
     }
 
@@ -74,7 +74,7 @@ public class EduVideoServiceImpl extends ServiceImpl<EduVideoMapper, EduVideo> i
         wrapper.eq("course_id",courseId);
         boolean flag = this.remove(wrapper);
         if(!flag){
-            throw new GuliException(20001,"小节删除失败！");
+            throw new EduException(20001,"小节删除失败！");
         }
     }
 

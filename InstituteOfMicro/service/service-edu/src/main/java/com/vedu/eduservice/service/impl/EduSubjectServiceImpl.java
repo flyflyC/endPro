@@ -10,7 +10,7 @@ import com.vedu.eduservice.listener.SubjectExcelListener;
 import com.vedu.eduservice.mapper.EduSubjectMapper;
 import com.vedu.eduservice.service.EduSubjectService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.vedu.servicebase.exceptionhandler.GuliException;
+import com.vedu.servicebase.exceptionhandler.EduException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -40,7 +40,7 @@ public class EduSubjectServiceImpl extends ServiceImpl<EduSubjectMapper, EduSubj
             EasyExcel.read(inputStream, ExcelSubjectData.class, new SubjectExcelListener(eduSubjectService)).sheet().doRead();
         }catch(Exception e) {
             e.printStackTrace();
-            throw new GuliException(20002,"添加课程分类失败");
+            throw new EduException(20002,"添加课程分类失败");
         }
     }
 

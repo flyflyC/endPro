@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.vedu.eduservice.entity.EduSubject;
 import com.vedu.eduservice.entity.ExcelSubjectData;
 import com.vedu.eduservice.service.EduSubjectService;
-import com.vedu.servicebase.exceptionhandler.GuliException;
+import com.vedu.servicebase.exceptionhandler.EduException;
 
 import java.util.Map;
 
@@ -30,7 +30,7 @@ public class SubjectExcelListener extends AnalysisEventListener<ExcelSubjectData
     @Override
     public void invoke(ExcelSubjectData user, AnalysisContext analysisContext) {
         if(user == null) {
-            throw new GuliException(20001,"添加失败");
+            throw new EduException(20001,"添加失败");
         }
         //添加一级分类
         EduSubject existOneSubject = this.existOneSubject(subjectService,user.getOneSubjectName());

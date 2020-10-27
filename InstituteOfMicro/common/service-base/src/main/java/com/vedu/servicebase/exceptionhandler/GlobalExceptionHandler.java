@@ -43,9 +43,9 @@ public class GlobalExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler(GuliException.class)
+    @ExceptionHandler(EduException.class)
     @ResponseBody
-    public Result error(GuliException e){
+    public Result error(EduException e){
         log.error(e.getMessage()); // 将错误日志输出到文件
         e.printStackTrace();
         return Result.error().code(e.getCode()).message(e.getMsg());

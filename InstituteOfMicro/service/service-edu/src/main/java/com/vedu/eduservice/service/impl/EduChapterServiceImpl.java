@@ -9,7 +9,7 @@ import com.vedu.eduservice.mapper.EduChapterMapper;
 import com.vedu.eduservice.service.EduChapterService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.vedu.eduservice.service.EduVideoService;
-import com.vedu.servicebase.exceptionhandler.GuliException;
+import com.vedu.servicebase.exceptionhandler.EduException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,7 +80,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
     @Override
     public boolean removeChapterById(String id) {
         if (videoService.getCountByChapterId(id)) {
-            throw new GuliException(20001, "该分章节下存在视频课程，请先删除视频课程");
+            throw new EduException(20001, "该分章节下存在视频课程，请先删除视频课程");
         }
 
         Integer result = baseMapper.deleteById(id);
@@ -93,7 +93,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         wrapper.eq("course_id",courseId);
         boolean flag = this.remove(wrapper);
         if(!flag){
-            throw new GuliException(20001,"章节删除失败！");
+            throw new EduException(20001,"章节删除失败！");
         }
     }
 }

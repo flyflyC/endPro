@@ -2,7 +2,7 @@ package com.vedu.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.vedu.common.Result;
+import com.vedu.commonutils.Result;
 import com.vedu.entity.CrmBanner;
 import com.vedu.service.CrmBannerService;
 import io.swagger.annotations.ApiOperation;
@@ -27,7 +27,7 @@ public class BannerAdminController {
 
     @GetMapping("/pageBanner/{page}/{limit}")
     public Result pageBanner(@PathVariable long page
-            ,@PathVariable long limit){
+            , @PathVariable long limit){
         Page<CrmBanner> pageBanner = new Page<>(page,limit);
         bannerService.page(pageBanner, null);
         return Result.ok().data("items",pageBanner.getRecords())

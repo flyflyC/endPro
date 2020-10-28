@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.vedu.eduservice.entity.EduCourse;
 import com.vedu.eduservice.entity.EduCourseDescription;
+import com.vedu.eduservice.entity.frontvo.CourseFrontVo;
+import com.vedu.eduservice.entity.frontvo.CourseWebVo;
 import com.vedu.eduservice.entity.vo.CourseInfoForm;
 import com.vedu.eduservice.entity.vo.CoursePublishForm;
 import com.vedu.eduservice.entity.vo.CourseQuery;
@@ -16,8 +18,13 @@ import com.vedu.eduservice.service.EduVideoService;
 import com.vedu.servicebase.exceptionhandler.EduException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -41,6 +48,67 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
 
     @Autowired
     private EduChapterService eduChapterService;
+
+    //查询课程信息
+    @Override
+    public CourseWebVo getBaseCourseInfo(String courseId) {
+        return baseMapper.getBaseCourseInfo(courseId);
+    }
+
+    @Cacheable(key = "'selectHotCourse'",value = "hotCourse")
+    @Override
+    public List<EduCourse> selectHotCourse() {
+        QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
+        wrapper.orderByDesc("id");
+        wrapper.last("limit 8");
+        List<EduCourse> list = baseMapper.selectList(wrapper);
+        return list;
+    }
+
+    @Override
+    public Map<String, Object> getCourseFrontList(Page<EduCourse> pageParam, CourseFrontVo courseFrontVo) {
+        QueryWrapper<EduCourse> wrapper = new QueryWrapper<>();
+        if(!StringUtils.isEmpty(courseFrontVo.getSubjectParentId())){
+            wrapper.eq("subject_parent_id",courseFrontVo.getSubjectParentId());
+        }
+        if(!StringUtils.isEmpty(courseFrontVo.getSubjectId())){
+            wrapper.eq("subject_id",courseFrontVo.getSubjectId());
+        }
+        if(!StringUtils.isEmpty(courseFrontVo.getBuyCountSort())){
+            wrapper.orderByDesc("buy_count");
+        }
+        if (!StringUtils.isEmpty(courseFrontVo.getGmtCreateSort())) {
+            wrapper.orderByDesc("gmt_create");
+        }
+        if (!StringUtils.isEmpty(courseFrontVo.getPriceSort())) {
+            wrapper.orderByDesc("price");
+        }
+
+        baseMapper.selectPage(pageParam, wrapper);
+
+
+        List<EduCourse> records = pageParam.getRecords();
+        long current = pageParam.getCurrent();
+        long pages = pageParam.getPages();
+        long size = pageParam.getSize();
+        long total = pageParam.getTotal();
+        boolean hasNext = pageParam.hasNext();
+        boolean hasPrevious = pageParam.hasPrevious();
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("items", records);
+        map.put("current", current);
+        map.put("pages", pages);
+        map.put("size", size);
+        map.put("total", total);
+        map.put("hasNext", hasNext);
+        map.put("hasPrevious", hasPrevious);
+
+        return map;
+    }
+
+
+
     @Override
     public String saveCourseInfo(CourseInfoForm courseInfoForm) {
 
@@ -82,6 +150,8 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         }
         return courseInfoForm;
     }
+
+
 
     @Override
     public void updateCourseInfoById(CourseInfoForm courseInfoForm) {

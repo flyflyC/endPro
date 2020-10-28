@@ -37,9 +37,8 @@ public class EduSubjectController {
     }
 
     @ApiOperation(value = "嵌套数据列表")
-    @GetMapping("")
+    @GetMapping("nestedList")
     public Result nestedList(){
-
         List<OneSubject> subjectNestedVoList = eduSubjectService.nestedList();
         return Result.ok().data("items", subjectNestedVoList);
     }

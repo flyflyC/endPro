@@ -57,7 +57,7 @@ public class EduTeacherServiceImpl extends ServiceImpl<EduTeacherMapper, EduTeac
         wrapper.orderByDesc("gmt_create");
         baseMapper.selectPage(pageParam,wrapper);
     }
-    @Cacheable(key = "'selectList'",value = "hotTeacher")
+    @Cacheable(key = "'selectHotTeacher'",value = "hotTeacher")
     @Override
     public List<EduTeacher> selectHotTeacher() {
         QueryWrapper<EduTeacher> wrapper = new QueryWrapper<>();

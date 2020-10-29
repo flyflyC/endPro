@@ -1,6 +1,12 @@
 import request from '@/utils/request'
 
 export default {
+  removeById(videoId) {
+    return request({
+      url: `/admin/vod/video/${videoId}`,
+      method: 'delete'
+    })
+  },
   saveVideoInfo(videoInfo) {
     return request({
       url: `/eduservice/eduVideo/saveInfo`,
@@ -26,5 +32,5 @@ export default {
       url: `/eduservice/eduVideo/deleteById/${videoId}`,
       method: 'delete'
     })
-  },
+  }
 }

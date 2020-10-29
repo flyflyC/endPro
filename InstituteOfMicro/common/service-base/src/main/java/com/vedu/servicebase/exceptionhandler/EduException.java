@@ -1,7 +1,7 @@
 package com.vedu.servicebase.exceptionhandler;
 
 
-import com.vedu.commonutils.ResultCode;
+import com.vedu.common.ResultCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

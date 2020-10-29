@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Configuration
 @EnableTransactionManagement
 @CrossOrigin //跨域
-@MapperScan("com.lixiande.eduservice.mapper")
+@MapperScan("com.lixiande.eduservice.mapper") // 配置类：将MappScan加入，则不需在启动类上加
 public class MyBatisPlusConfig {
     /**
      * 逻辑删除插件

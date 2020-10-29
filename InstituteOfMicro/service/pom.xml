@@ -14,8 +14,8 @@
     <modules>
         <module>service-edu</module>
         <module>service-oss</module>
+        <module>service-vod</module>
         <module>service-cms</module>
-        <module>service-msm</module>
         <module>service-msm</module>
         <module>service-ucenter</module>
     </modules>
@@ -26,11 +26,11 @@
             <artifactId>service-base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.vedu</groupId>-->
-<!--            <artifactId>service-edu</artifactId>-->
-<!--            <version>0.0.1-SNAPSHOT</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.vedu</groupId>-->
+        <!--            <artifactId>service-edu</artifactId>-->
+        <!--            <version>0.0.1-SNAPSHOT</version>-->
+        <!--        </dependency>-->
         <!--依赖传递后，该依赖可以不用-->
        <dependency>
             <groupId>com.vedu</groupId>
@@ -43,21 +43,21 @@
         </dependency>
 
         <!--hystrix依赖，主要是用  @HystrixCommand -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
-        &lt;!&ndash;服务注册&ndash;&gt;
+        <!--服务注册-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-        &lt;!&ndash;服务调用&ndash;&gt;
+        <!--服务调用-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>-->
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -136,6 +136,8 @@
             <version>4.12</version>
         </dependency>
     </dependencies>
+
+    <!--静态资源过滤，防止 xml 文件 Not Found ,application.properties中也要配置-->
     <build>
         <resources>
             <resource>

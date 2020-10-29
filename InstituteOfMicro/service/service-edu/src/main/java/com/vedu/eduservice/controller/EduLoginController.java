@@ -1,6 +1,6 @@
 package com.vedu.eduservice.controller;
 
-import com.vedu.commonutils.Result;
+import com.vedu.common.Result;
 import org.springframework.web.bind.annotation.*;
 
 /**

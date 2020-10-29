@@ -1,8 +1,6 @@
 package com.vedu.oss.controller;
 
-import com.vedu.commonutils.Result;
-import com.vedu.eduservice.entity.EduTeacher;
-import com.vedu.eduservice.service.EduTeacherService;
+import com.vedu.common.Result;
 import com.vedu.oss.service.FileService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -2,7 +2,7 @@ package com.vedu.oss.service.impl;
 
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.model.CannedAccessControlList;
-import com.vedu.commonutils.ResultCode;
+import com.vedu.common.ResultCode;
 import com.vedu.oss.service.FileService;
 import com.vedu.oss.utils.ConstantPropertiesUtil;
 import com.vedu.servicebase.exceptionhandler.EduException;

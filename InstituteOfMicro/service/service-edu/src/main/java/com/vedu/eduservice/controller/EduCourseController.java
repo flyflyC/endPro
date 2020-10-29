@@ -3,7 +3,7 @@ package com.vedu.eduservice.controller;
 
 import com.alibaba.excel.util.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.vedu.commonutils.Result;
+import com.vedu.common.Result;
 import com.vedu.eduservice.entity.EduCourse;
 import com.vedu.eduservice.entity.vo.CourseInfoForm;
 import com.vedu.eduservice.entity.vo.CoursePublishForm;

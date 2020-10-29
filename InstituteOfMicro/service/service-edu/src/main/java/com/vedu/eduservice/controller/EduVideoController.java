@@ -1,7 +1,7 @@
 package com.vedu.eduservice.controller;
 
 
-import com.vedu.commonutils.Result;
+import com.vedu.common.Result;
 import com.vedu.eduservice.entity.vo.VideoInfoForm;
 import com.vedu.eduservice.service.EduVideoService;
 import org.springframework.beans.factory.annotation.Autowired;

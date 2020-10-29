@@ -1,7 +1,9 @@
 package com.vedu.eduservice.controller.front;
 
-import com.vedu.common.Result;
+import com.vedu.commonutils.Result;
+import com.vedu.eduservice.entity.EduCourse;
 import com.vedu.eduservice.entity.EduTeacher;
+import com.vedu.eduservice.service.EduCourseService;
 import com.vedu.eduservice.service.EduTeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,15 +15,18 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("/eduService/indexfront")
+@RequestMapping("/eduservice/indexfront")
 @CrossOrigin
 public class IndexFrontController {
 
     @Autowired
     private EduTeacherService teacherService;
 
+    @Autowired
+    private EduCourseService courseService;
+
     //查询前4条名师
-    @GetMapping("/index")
+    @GetMapping("/hotTeacher")
     public Result getHotTeacher(){
         List<EduTeacher> teacherList=teacherService.selectHotTeacher();
         HashMap<String, Object> map = new HashMap<>();
@@ -30,7 +35,13 @@ public class IndexFrontController {
     }
 
     //查询前八条热门课程！！！
-
+    @GetMapping("/hotCourse")
+    public Result getHotCourse(){
+        List<EduCourse> courseList = courseService.selectHotCourse();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("eduList",courseList);
+        return Result.ok().data(map);
+    }
 
 
 

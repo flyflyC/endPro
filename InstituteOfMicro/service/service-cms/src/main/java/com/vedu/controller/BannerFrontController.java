@@ -1,7 +1,7 @@
 package com.vedu.controller;
 
 
-import com.vedu.common.Result;
+import com.vedu.commonutils.Result;
 import com.vedu.entity.CrmBanner;
 import com.vedu.service.CrmBannerService;
 import org.springframework.beans.factory.annotation.Autowired;

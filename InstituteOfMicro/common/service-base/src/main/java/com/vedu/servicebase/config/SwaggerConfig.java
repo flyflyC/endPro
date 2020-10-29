@@ -29,7 +29,7 @@ public class SwaggerConfig {
                 .groupName("webApi")
                 .apiInfo(webApiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.lixiande"))
+                .apis(RequestHandlerSelectors.basePackage("com.vedu"))
                 //.paths(Predicates.not(PathSelectors.regex("/admin/.*")))
                 .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build();

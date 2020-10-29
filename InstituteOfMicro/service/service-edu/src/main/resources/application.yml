@@ -17,8 +17,8 @@ spring:
 
 # mybatis-plus配置
 mybatis-plus:
-  mapper-locations: classpath:/mapper/*Mapper.xml
-  type-aliases-package: com.flyblog.entity
+  mapper-locations: classpath:com/vedu/eduservice/mapper/xml/*Mapper.xml
+#  type-aliases-package: com.vedu.eduservice.entity
   #mybatis日志
   configuration:
    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

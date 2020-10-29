@@ -32,6 +32,7 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
 
     @Override
     public List<ChapterVo> nestedList(String courseId) {
+        System.out.println("==="+courseId);
         //最终要的到的数据列表
         ArrayList<ChapterVo> chapterVoArrayList = new ArrayList<>();
 
@@ -41,14 +42,17 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
         queryWrapper1.orderByAsc("sort", "id");
         List<EduChapter> chapters = baseMapper.selectList(queryWrapper1);
 
+        System.out.println("9999"+chapters.toString());
         //获取课时信息
         QueryWrapper<EduVideo> queryWrapper2 = new QueryWrapper<>();
         queryWrapper2.eq("course_id", courseId);
         queryWrapper2.orderByAsc("sort", "id");
         List<EduVideo> videos = videoService.list(queryWrapper2);
 
+        System.out.println("+++++++"+videos.toString());
         //填充章节vo数据
         int count1 = chapters.size();
+        System.out.println("-------------"+count1);
         for (int i = 0; i < count1; i++) {
             EduChapter chapter = chapters.get(i);
 
@@ -63,12 +67,14 @@ public class EduChapterServiceImpl extends ServiceImpl<EduChapterMapper, EduChap
             for (int j = 0; j < count2; j++) {
 
                 EduVideo video = videos.get(j);
+                System.out.println("=================="+video);
                 if (chapter.getId().equals(video.getChapterId())) {
 
                     //创建课时vo对象
                     VideoVo videoVo = new VideoVo();
                     BeanUtils.copyProperties(video, videoVo);
                     videoVoArrayList.add(videoVo);
+                    System.out.println(videoVo);
                 }
             }
             chapterVo.setChildren(videoVoArrayList);

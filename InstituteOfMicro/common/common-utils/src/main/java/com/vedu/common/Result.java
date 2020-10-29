@@ -1,4 +1,4 @@
-package com.vedu.commonutils;
+package com.vedu.common;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

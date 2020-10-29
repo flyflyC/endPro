@@ -1,6 +1,6 @@
 package com.vedu.servicebase.exceptionhandler;
 
-import com.vedu.commonutils.Result;
+import com.vedu.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

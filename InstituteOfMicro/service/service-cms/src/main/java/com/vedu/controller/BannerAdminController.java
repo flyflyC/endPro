@@ -27,7 +27,7 @@ public class BannerAdminController {
 
     @GetMapping("/pageBanner/{page}/{limit}")
     public Result pageBanner(@PathVariable long page
-            ,@PathVariable long limit){
+            , @PathVariable long limit){
         Page<CrmBanner> pageBanner = new Page<>(page,limit);
         bannerService.page(pageBanner, null);
         return Result.ok().data("items",pageBanner.getRecords())

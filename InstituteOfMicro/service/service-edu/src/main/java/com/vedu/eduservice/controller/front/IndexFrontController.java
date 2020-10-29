@@ -1,6 +1,6 @@
 package com.vedu.eduservice.controller.front;
 
-import com.vedu.commonutils.Result;
+import com.vedu.common.Result;
 import com.vedu.eduservice.entity.EduTeacher;
 import com.vedu.eduservice.service.EduTeacherService;
 import org.springframework.beans.factory.annotation.Autowired;

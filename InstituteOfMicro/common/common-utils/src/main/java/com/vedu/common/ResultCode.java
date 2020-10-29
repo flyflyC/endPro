@@ -1,4 +1,4 @@
-package com.vedu.commonutils;
+package com.vedu.common;
 
 /**
  * @program: guli-parent

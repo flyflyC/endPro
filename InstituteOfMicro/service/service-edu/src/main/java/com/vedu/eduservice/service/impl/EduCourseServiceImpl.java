@@ -33,7 +33,7 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
     @Autowired
     private EduCourseDescriptionService descriptionService;
 
-    @Autowired(required = false)
+    @Autowired
     private EduCourseMapper eduCourseMapper;
 
     @Autowired
@@ -159,6 +159,10 @@ public class EduCourseServiceImpl extends ServiceImpl<EduCourseMapper, EduCourse
         eduChapterService.removeChapterInfoById(courseId);
         // 3、根据课程id删除课程描述
         descriptionService.removeById(courseId);
+
+        // TODO 删除封面
+
+
         // 4、根据课程id删除课程自身
         baseMapper.deleteById(courseId);
     }

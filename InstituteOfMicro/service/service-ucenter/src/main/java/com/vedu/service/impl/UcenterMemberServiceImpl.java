@@ -2,10 +2,10 @@ package com.vedu.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.vedu.common.JwtUtils;
+import com.vedu.servicebase.exceptionhandler.EduException;
 import com.vedu.utils.MD5;
 import com.vedu.entity.UcenterMember;
 import com.vedu.entity.vo.RegisterVo;
-import com.vedu.exceptionhandler.EduException;
 import com.vedu.mapper.UcenterMemberMapper;
 import com.vedu.service.UcenterMemberService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

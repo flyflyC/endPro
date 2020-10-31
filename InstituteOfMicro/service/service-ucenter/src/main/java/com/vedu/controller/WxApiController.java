@@ -1,9 +1,9 @@
 package com.vedu.controller;
 
+import com.vedu.servicebase.exceptionhandler.EduException;
 import com.vedu.utils.ConstantWxUtils;
 import com.vedu.common.JwtUtils;
 import com.vedu.entity.UcenterMember;
-import com.vedu.exceptionhandler.EduException;
 import com.vedu.service.UcenterMemberService;
 import com.vedu.utils.HttpClientUtils;
 import com.google.gson.Gson;

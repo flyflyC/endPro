@@ -3,9 +3,11 @@ package com.vedu.controller;
 
 import com.vedu.common.JwtUtils;
 import com.vedu.common.Result;
+import com.vedu.common.ordervo.UcenterMemberOrder;
 import com.vedu.entity.UcenterMember;
 import com.vedu.entity.vo.RegisterVo;
 import com.vedu.service.UcenterMemberService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,6 +52,16 @@ public class UcenterMemberController {
         HashMap<String,Object> map = new HashMap<>();
         map.put("userInfo",member);
         return Result.ok().data(map);
+    }
+
+    //根据用户id获取用户信息
+    @PostMapping("getUserInfoOrder/{id}")
+    public UcenterMemberOrder getUserInfoOrder(@PathVariable String id){
+        UcenterMember member = memberService.getById(id);
+        //把member的信息赋值给UcenterMemberOrder
+        UcenterMemberOrder ucenterMemberOrder = new UcenterMemberOrder();
+        BeanUtils.copyProperties(member,ucenterMemberOrder);
+        return ucenterMemberOrder;
     }
 }
 

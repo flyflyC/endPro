@@ -1,5 +1,5 @@
 package com.vedu.controller;
-import com.vedu.commonutils.Result;
+import com.vedu.common.Result;
 import com.vedu.service.MsmService;
 import com.vedu.utils.RandomUtil;
 import org.springframework.beans.factory.annotation.Autowired;

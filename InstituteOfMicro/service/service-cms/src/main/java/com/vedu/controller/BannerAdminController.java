@@ -2,7 +2,7 @@ package com.vedu.controller;
 
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.vedu.commonutils.Result;
+import com.vedu.common.Result;
 import com.vedu.entity.CrmBanner;
 import com.vedu.service.CrmBannerService;
 import io.swagger.annotations.ApiOperation;

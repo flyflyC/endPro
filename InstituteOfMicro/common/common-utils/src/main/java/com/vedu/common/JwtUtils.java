@@ -1,4 +1,4 @@
-package com.vedu.commonutils;
+package com.vedu.common;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/common/common-utils" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/InstituteOfMicro/common/common-utils/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/common/service-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/InstituteOfMicro/common/service-base/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-cms/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-cms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-edu" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-edu/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-msm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-msm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-oss" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-oss/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-ucenter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-vod/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-ucenter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/InstituteOfMicro/service/service-vod" charset="UTF-8" />
   </component>
 </project>

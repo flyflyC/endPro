@@ -7,6 +7,10 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/InstituteOfMicro/pom.xml" />
+        <option value="$PROJECT_DIR$/InstituteOfMicro/service/service_cms/pom.xml" />
+        <option value="$PROJECT_DIR$/InstituteOfMicro/service/service_msm/pom.xml" />
+        <option value="$PROJECT_DIR$/InstituteOfMicro/service/service_ucenter/pom.xml" />
+        <option value="$PROJECT_DIR$/InstituteOfMicro/service/service-vod/pom.xml" />
       </list>
     </option>
   </component>

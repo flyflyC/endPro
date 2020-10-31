@@ -3,6 +3,8 @@ package com.vedu.service;
 import com.vedu.entity.PayLog;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.Map;
+
 /**
  * <p>
  * 支付日志表 服务类
@@ -13,4 +15,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface PayLogService extends IService<PayLog> {
 
+    Map createNative(String orderNo);
 }

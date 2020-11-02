@@ -21,7 +21,7 @@ import java.util.Map;
  * @since 2020-10-30
  */
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/orderservice/order")
 @CrossOrigin
 public class OrderController {
 

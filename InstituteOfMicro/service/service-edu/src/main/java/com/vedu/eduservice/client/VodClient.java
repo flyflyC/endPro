@@ -16,7 +16,7 @@ import java.util.List;
  * @create: 2020-10-27 15:07
  **/
 // @FeignClient("service-vod")  //未加熔断器之前的注解
-@FeignClient(name = "service-vod", fallback = VodFileDegradeFeignClient.class)
+@FeignClient(name = "service-vod")
 @Component
 public interface VodClient {
     @DeleteMapping("/admin/vod/video/{videoId}")

@@ -30,6 +30,12 @@ public class UcenterMemberController {
     @Autowired
     private UcenterMemberService memberService;
 
+    @GetMapping("registerNumber/{date}")
+    public int getRegisterNumber(@PathVariable String date){
+        Integer number = memberService.getRegisterNumber(date);
+        return number;
+    }
+
     //登录
     @PostMapping("/login")
     public Result loginUser(@RequestBody UcenterMember member){

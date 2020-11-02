@@ -5,7 +5,7 @@ export default {
 
   getNestedTreeList() {
     return request({
-      url: `/eduservice/subject`,
+      url: `/eduservice/subject/nestedList`,
       method: 'get'
     })
   }

@@ -28,6 +28,9 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
 
+    @Autowired
+    private UcenterMemberMapper ucenterMemberMapper;
+
     //登录
     @Override
     public String login(UcenterMember member) {
@@ -102,5 +105,11 @@ public class UcenterMemberServiceImpl extends ServiceImpl<UcenterMemberMapper, U
         wrapper.eq("openid",openid);
         UcenterMember ucenterMember = baseMapper.selectOne(wrapper);
         return ucenterMember;
+    }
+
+    @Override
+    public Integer getRegisterNumber(String date) {
+        Integer number = ucenterMemberMapper.getRegisterNumber(date);
+        return number;
     }
 }

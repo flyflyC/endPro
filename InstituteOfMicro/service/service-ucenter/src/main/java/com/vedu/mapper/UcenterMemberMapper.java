@@ -2,6 +2,8 @@ package com.vedu.mapper;
 
 import com.vedu.entity.UcenterMember;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +13,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author testjava
  * @since 2020-10-20
  */
+@Repository
 public interface UcenterMemberMapper extends BaseMapper<UcenterMember> {
-
+    Integer getRegisterNumber(String date);
 }

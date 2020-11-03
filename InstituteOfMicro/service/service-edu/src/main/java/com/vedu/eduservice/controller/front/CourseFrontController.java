@@ -1,8 +1,10 @@
 package com.vedu.eduservice.controller.front;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.vedu.common.JwtUtils;
 import com.vedu.common.Result;
 import com.vedu.common.ordervo.CourseWebVoOrder;
+import com.vedu.eduservice.client.OrdersClient;
 import com.vedu.eduservice.entity.EduCourse;
 import com.vedu.eduservice.entity.frontvo.CourseFrontVo;
 import com.vedu.eduservice.entity.frontvo.CourseWebVo;
@@ -13,6 +15,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +30,10 @@ public class CourseFrontController {
 
     @Autowired
     private EduChapterService chapterService;
+
+    @Autowired
+    private OrdersClient ordersClient;
+
     //条件查询带分页查询课程
     @PostMapping("/getFrontCourseList/{page}/{limit}")
     public Result getFrontCourseList(@PathVariable long page, @PathVariable long limit,
@@ -37,12 +44,14 @@ public class CourseFrontController {
     }
 
     @GetMapping("getFrontCourseInfo/{courseId}")
-    public Result getFrontCourseInfo(@PathVariable String courseId){
+    public Result getFrontCourseInfo(@PathVariable String courseId, HttpServletRequest request){
         CourseWebVo courseWebVo = courseService.getBaseCourseInfo(courseId);
         List<ChapterVo> chapterVideoList = chapterService.nestedList(courseId);
+        boolean buyCourse = ordersClient.isBuyCourse(courseId, JwtUtils.getMemberIdByJwtToken(request));
         HashMap<String,Object> map = new HashMap<>();
         map.put("courseWebVo",courseWebVo);
         map.put("chapterVideoList",chapterVideoList);
+        map.put("isbuy",buyCourse);
         return Result.ok().data(map);
     }
 

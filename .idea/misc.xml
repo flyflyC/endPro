@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/InstituteOfMicro/service/service_msm/pom.xml" />
         <option value="$PROJECT_DIR$/InstituteOfMicro/service/service_ucenter/pom.xml" />
         <option value="$PROJECT_DIR$/InstituteOfMicro/service/service-vod/pom.xml" />
+        <option value="$PROJECT_DIR$/InstituteOfMicro/service/service-sta/pom.xml" />
       </list>
     </option>
   </component>

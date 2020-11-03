@@ -22,6 +22,7 @@
         <module name="service-msm" />
         <module name="service-order" />
         <module name="service-oss" />
+        <module name="service-sta" />
         <module name="service-ucenter" />
         <module name="service-vod" />
       </profile>
@@ -37,6 +38,7 @@
       <module name="service-msm" target="1.8" />
       <module name="service-order" target="1.8" />
       <module name="service-oss" target="1.8" />
+      <module name="service-sta" target="1.8" />
       <module name="service-ucenter" target="1.8" />
       <module name="service-vod" target="1.8" />
       <module name="service_cms" target="1.5" />
@@ -53,6 +55,7 @@
       <module name="service-msm" options="-parameters" />
       <module name="service-order" options="-parameters" />
       <module name="service-oss" options="-parameters" />
+      <module name="service-sta" options="-parameters" />
       <module name="service-ucenter" options="-parameters" />
       <module name="service-vod" options="-parameters" />
     </option>

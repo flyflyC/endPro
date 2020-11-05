@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://127.0.0.1:3306/guli_edu?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    driverClassName: com.mysql.cj.jdbc.Driver
+      #环境设置：dev、test、prod
+
+#设置返回的json的时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  profiles:
+    active: dev
+  application:
+    name: service-blog
+mybatis-plus:
+  type-aliases-package: com.flyedu.blog.entity
+  mapper-locations: classpath:com/flyedu/blog/mapper/*mapper.xml
+server:
+  port: 8011

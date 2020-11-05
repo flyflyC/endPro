@@ -3,7 +3,7 @@ package com.vedu.service.impl;
 import com.vedu.client.EduClient;
 import com.vedu.client.UcenterClient;
 import com.vedu.common.ordervo.CourseWebVoOrder;
-import com.vedu.common.ordervo.UcenterMemberOrder;
+import com.vedu.common.ordervo.UcenterMemberVo;
 import com.vedu.entity.Order;
 import com.vedu.mapper.OrderMapper;
 import com.vedu.service.OrderService;
@@ -31,7 +31,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Override
     public String createOrders(String courseId, String memberId) {
         //获取用户信息
-        UcenterMemberOrder userInfoOrder = ucenterClient.getUserInfoOrder(memberId);
+        UcenterMemberVo userInfoOrder = ucenterClient.getUserInfoOrder(memberId);
         //获取课程信息
         CourseWebVoOrder courseInfoOrder = eduClient.getCourseInfoOrder(courseId);
 

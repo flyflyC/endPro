@@ -9,3 +9,24 @@ cc更改
 
 2020/11/02 20:49 LiXianDe
 统计分析模块编写完成
+
+2020/11/04 20:16添加博客功能
+
+步骤：
+        
+        npm install markdown-it --save  //用于解析md文档（前后台都需要）
+        npm install github-markdown-css --save //md样式
+         npm install --save mavon-editor mavon-editor/dist/css/index.css
+        npm install element-ui
+        
+        //后台 src/main.js
+        import mavonEditor from 'mavon-editor'
+        import 'mavon-editor/dist/css/index.css'
+        import 'github-markdown-css'
+        Vue.use(mavonEditor)
+        
+        //src/api添加blog.js
+        //src/router添加博客路由
+        //src/views/blog添加页面
+   
+完成博客后台接口     

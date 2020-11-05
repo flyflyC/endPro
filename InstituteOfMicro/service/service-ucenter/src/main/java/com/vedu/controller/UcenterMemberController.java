@@ -3,7 +3,7 @@ package com.vedu.controller;
 
 import com.vedu.common.JwtUtils;
 import com.vedu.common.Result;
-import com.vedu.common.ordervo.UcenterMemberOrder;
+import com.vedu.common.ordervo.UcenterMemberVo;
 import com.vedu.entity.UcenterMember;
 import com.vedu.entity.vo.RegisterVo;
 import com.vedu.service.UcenterMemberService;
@@ -62,12 +62,12 @@ public class UcenterMemberController {
 
     //根据用户id获取用户信息
     @PostMapping("getUserInfoOrder/{id}")
-    public UcenterMemberOrder getUserInfoOrder(@PathVariable String id){
+    public UcenterMemberVo getUserInfoOrder(@PathVariable String id){
         UcenterMember member = memberService.getById(id);
         //把member的信息赋值给UcenterMemberOrder
-        UcenterMemberOrder ucenterMemberOrder = new UcenterMemberOrder();
-        BeanUtils.copyProperties(member,ucenterMemberOrder);
-        return ucenterMemberOrder;
+        UcenterMemberVo ucenterMemberVo = new UcenterMemberVo();
+        BeanUtils.copyProperties(member, ucenterMemberVo);
+        return ucenterMemberVo;
     }
 }
 

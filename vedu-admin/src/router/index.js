@@ -145,7 +145,39 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/blog',
+    component: Layout,
+    redirect: '/blog/table',
+    name: '博客管理',
+    meta: { title: '博客管理', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: '博客列表',
+        component: () => import('@/views/blog/list'),
+        meta: { title: '博客列表', icon: 'table' }
+      },
+      {
+        path: 'edit/:id',
+        name: '编辑博客',
+        component: () => import('@/views/blog/edit'),
+        meta: { title: '编辑博客', icon: 'tree' }
+      },
+      {
+        path: 'save',
+        name: '发布博客',
+        component: () => import('@/views/blog/save'),
+        meta: { title: '发布博客', icon: 'tree' }
+      },
+      {
+        path: 'detail/:id',
+        name: '博客详情',
+        component: () => import('@/views/blog/detail'),
+        meta: { title: '博客详情', icon: 'tree' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,

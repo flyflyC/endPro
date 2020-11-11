@@ -1,7 +1,7 @@
 package com.vedu.eduservice.service;
 
-import com.vedu.eduservice.entity.EduVideo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.vedu.eduservice.entity.EduVideo;
 import com.vedu.eduservice.entity.vo.VideoInfoForm;
 
 /**
